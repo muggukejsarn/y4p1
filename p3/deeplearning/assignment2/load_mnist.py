@@ -9,7 +9,8 @@ import glob
 # på laptopen:
 
 
-def load_mnist():
+
+def load_mnist(machine):
     # Loads the MNIST dataset from png images
     #
     # Return
@@ -19,6 +20,16 @@ def load_mnist():
     # Y_test - Test output (one-hot encoded)
     #
     # Each of them uses rows as data point dimension.
+    if machine == "laptop":
+        print("Reading MNIST: laptop")
+        testpath = "C:/skola/uni/Y4/p3/deeplearning/ass2/mnist/MNIST/MNIST/Test"
+        trainpath = "C:/skola/uni/Y4/p3/deeplearning/ass2/mnist/MNIST/MNIST/Train"
+    
+    if machine == "station":
+        print("Reading MNIST: stationary")
+        testpath = "D:/skola/universitet/2024_2025/p3/deeplearning/ass1/MNIST/Test/"
+        trainpath = "D:/skola/universitet/2024_2025/p3/deeplearning/ass1/MNIST/Train/"
+
  
     NUM_LABELS = 10        
     # create list of image objects
@@ -26,7 +37,7 @@ def load_mnist():
     test_labels = []    
     
     for label in range(NUM_LABELS):
-        for image_path in glob.glob("D:/skola/universitet/2024_2025/p3/deeplearning/ass1/MNIST/Test/" + str(label) + "/*.png"):
+        for image_path in glob.glob(testpath + str(label) + "/*.png"):
             image = imageio.imread(image_path)
             test_images.append(image)
             letter = [0 for _ in range(0,NUM_LABELS)]    
@@ -38,7 +49,7 @@ def load_mnist():
     train_labels = []    
     
     for label in range(NUM_LABELS):
-        for image_path in glob.glob("D:/skola/universitet/2024_2025/p3/deeplearning/ass1/MNIST/Train/" + str(label) + "/*.png"):
+        for image_path in glob.glob(trainpath + str(label) + "/*.png"):
             image = imageio.imread(image_path)
             train_images.append(image)
             letter = [0 for _ in range(0,NUM_LABELS)]    

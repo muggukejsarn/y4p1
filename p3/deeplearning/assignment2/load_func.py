@@ -10,7 +10,8 @@ import glob
 
 
 
-def load_mnist(machine):
+def load_mnist_func(machine: str):
+    print("Poopdogs")
     # Loads the MNIST dataset from png images
     #
     # Return
@@ -20,10 +21,12 @@ def load_mnist(machine):
     # Y_test - Test output (one-hot encoded)
     #
     # Each of them uses rows as data point dimension.
+
+
     if machine == "laptop":
         print("Reading MNIST: laptop")
-        testpath = "C:/skola/uni/Y4/p3/deeplearning/ass2/mnist/MNIST/MNIST/Test"
-        trainpath = "C:/skola/uni/Y4/p3/deeplearning/ass2/mnist/MNIST/MNIST/Train"
+        testpath = "C:/skola/uni/Y4/p3/deeplearning/ass2/mnist/MNIST/MNIST/Test/"
+        trainpath = "C:/skola/uni/Y4/p3/deeplearning/ass2/mnist/MNIST/MNIST/Train/"
     
     if machine == "station":
         print("Reading MNIST: stationary")

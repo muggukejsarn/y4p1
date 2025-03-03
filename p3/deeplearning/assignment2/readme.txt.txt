@@ -1,0 +1,1 @@
+put the mnist folder in here aswell

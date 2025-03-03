@@ -11,7 +11,7 @@ import glob
 
 
 def load_mnist_func(machine: str):
-    print("Poopdogs")
+    
     # Loads the MNIST dataset from png images
     #
     # Return
@@ -40,6 +40,7 @@ def load_mnist_func(machine: str):
     test_labels = []    
     
     for label in range(NUM_LABELS):
+        print(f"In first loop label {label}")
         for image_path in glob.glob(testpath + str(label) + "/*.png"):
             image = imageio.imread(image_path)
             test_images.append(image)
